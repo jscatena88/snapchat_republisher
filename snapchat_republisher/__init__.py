@@ -13,13 +13,13 @@ def sendSnapToStory(s, snap, path, saveImg,verbose):
     if verbose:
         print('Valid, moving forward')
         print('Marking snap viewed')
-    #s.mark_viewed(snap['id'])
+    s.mark_viewed(snap['id'])
     with open(abspath, 'wb') as f:
         f.write(data)
 
     if verbose:
         print('Sending snap to story')
-    #s.send_to_story(s.upload(abspath),5,get_media_type(data))
+    s.send_to_story(s.upload(abspath),5,get_media_type(data))
 
     if not saveImg:
         if verbose:
@@ -39,6 +39,6 @@ def addFriends(s,whitelist,verbose):
     for user in friends:
         if verbose:
             print('Attempting to approve friendship with {0}'.format(user))
-        #s.add_friend(user)
+        s.add_friend(user)
 
     return
